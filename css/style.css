@@ -244,6 +244,9 @@ img {
 #reported{
   display: none;
 }
+.qus-container{
+  margin-left: 300px;
+}
 
 @media only screen and (max-width: 992px) {
   #posts {
