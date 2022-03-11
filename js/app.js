@@ -14,8 +14,8 @@ const getReportedPosts = () => {
 };
 
 const isLiked = (id) => {
-  likedPostsId.innerHTML = '';
   return likedPostsId?.length && !!likedPostsId.includes(id);
+
 };
 
 const addToLiked = (id) => {
@@ -45,13 +45,15 @@ const switchTab = (id) => {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
+
   } else if (id === "liked") {
     document.getElementById("liked").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
 
     displayLikedPosts();
-  } else {
+  }
+  else {
     document.getElementById("reported").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("liked").style.display = "none";
@@ -61,8 +63,10 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
+  const liked = document.getElementById("liked")
   const image = post.image;
   const div = document.createElement("article");
+  liked.innerHTML = "";
   div.classList.add("post");
   div.innerHTML = `
               <div class="post__header">
@@ -139,12 +143,12 @@ const createPost = (post) => {
               </div >
   `;
   return div;
+
 };
 
 const showPosts = (posts) => {
   const productsContainer = document.getElementById("posts");
   productsContainer.innerHTML = "";
-
   posts.forEach((post) => {
     const div = createPost(post);
     productsContainer.appendChild(div);
@@ -157,6 +161,7 @@ const displayLikedPosts = () => {
   likedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("liked").appendChild(div);
+
   });
 };
 
@@ -169,9 +174,11 @@ const displayReportedPosts = () => {
 };
 
 const loadPosts = async () => {
+
   let data = await fetch('../data/posts.json');
   posts = await data.json();
   showPosts(posts);
+
 }
 
 loadPosts();
