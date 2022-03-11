@@ -255,7 +255,6 @@ img {
   .qus-container{
     display:flex;
     margin: auto;
-    
   }
 
 }
@@ -266,8 +265,6 @@ img {
   .qus-container{
     display:inline-block;
     margin: auto;
-  
-   
   }
  
 }

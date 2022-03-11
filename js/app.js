@@ -37,10 +37,11 @@ const displayContent = (text) => {
     return text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 
   }
-  // return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
 const switchTab = (id) => {
+  const liked = document.getElementById("liked")
+  liked.innerHTML = "";
   if (id === "posts") {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
@@ -63,10 +64,10 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-  const liked = document.getElementById("liked")
+
   const image = post.image;
   const div = document.createElement("article");
-  liked.innerHTML = "";
+
   div.classList.add("post");
   div.innerHTML = `
               <div class="post__header">
@@ -174,11 +175,9 @@ const displayReportedPosts = () => {
 };
 
 const loadPosts = async () => {
-
   let data = await fetch('../data/posts.json');
   posts = await data.json();
   showPosts(posts);
-
 }
 
 loadPosts();
