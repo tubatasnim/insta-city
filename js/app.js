@@ -30,7 +30,7 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
-  if (text.length <= 30) {
+  if (text.length < 30) {
     return text;
   }
   else {
