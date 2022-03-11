@@ -42,6 +42,8 @@ const displayContent = (text) => {
 const switchTab = (id) => {
   const liked = document.getElementById("liked")
   liked.innerHTML = "";
+  const reported = document.getElementById("reported")
+  reported.innerHTML = "";
   if (id === "posts") {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
@@ -64,10 +66,8 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-
   const image = post.image;
   const div = document.createElement("article");
-
   div.classList.add("post");
   div.innerHTML = `
               <div class="post__header">
