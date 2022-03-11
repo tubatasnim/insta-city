@@ -252,10 +252,21 @@ img {
   #posts {
     grid-template-columns: repeat(2, 1fr);
   }
+  .qus-container{
+    display:flex;
+    margin: auto;
+    
+  }
 
 }
 @media only screen and (max-width: 576px) {
   #posts {
     grid-template-columns: repeat(1, 1fr);
   }
+  .qus-container{
+    display:inline-block;
+    margin: auto;
+   
+  }
+ 
 }
