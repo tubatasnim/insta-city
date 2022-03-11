@@ -4,7 +4,9 @@ const likedPostsId = [];
 const reportedPostsId = [];
 
 const getLikedPosts = () => {
+
   return posts.filter((post) => likedPostsId.includes(post.id));
+
 };
 
 const getReportedPosts = () => {
@@ -12,6 +14,7 @@ const getReportedPosts = () => {
 };
 
 const isLiked = (id) => {
+  likedPostsId.innerHTML = '';
   return likedPostsId?.length && !!likedPostsId.includes(id);
 };
 
@@ -27,7 +30,14 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
-  return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
+  if (text.length <= 30) {
+    return text;
+  }
+  else {
+    return text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
+
+  }
+  // return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
 const switchTab = (id) => {
@@ -139,7 +149,7 @@ const showPosts = (posts) => {
     const div = createPost(post);
     productsContainer.appendChild(div);
   });
-  console.log(productsContainer);
+
 };
 
 const displayLikedPosts = () => {
@@ -165,4 +175,3 @@ const loadPosts = async () => {
 }
 
 loadPosts();
-// "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
