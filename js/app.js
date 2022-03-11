@@ -62,7 +62,7 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="User Picture" />
+                    <img src="${post.userImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
@@ -120,14 +120,14 @@ const createPost = (post) => {
                     <small>
                       <a class="post__name--underline" href="#">
                           ${post.comments?.user}
-                      </a>
-                      ${post.comments?.text}
-                    </small>
-                  </div>
-                  <span class="post__date-time">30 minutes ago</span>
-                </div>
-              </div>
-      `;
+                      </a >
+                          ${post.comments?.text}
+                    </small >
+                  </div >
+  <span class="post__date-time">30 minutes ago</span>
+                </div >
+              </div >
+  `;
   return div;
 };
 
@@ -139,6 +139,7 @@ const showPosts = (posts) => {
     const div = createPost(post);
     productsContainer.appendChild(div);
   });
+  console.log(productsContainer);
 };
 
 const displayLikedPosts = () => {
@@ -151,7 +152,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
-  posts.forEach((post) => {
+  reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
   });
